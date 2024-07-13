@@ -16,7 +16,7 @@ import numpy as np #numpy porque é sempre bom importar numpy né
 #https://www.kaggle.com/datasets/vitoriarodrigues/spotifycsv-file-modified-for-data-cleaning 
 df = pd.read_csv('spotify.csv', index_col=0) #Aqui estamos definindo que o arquivo ficará guardado no nome "df"
 df.sort_values('song_popularity', ascending=False, inplace=True) #Deixa as músicas em ordem de popularidade
-df.head(15) #aqui definimos que as primeiras 15 linhas aparecerão (lembrando que começa do 0)
+df_hear= df.head(15) #aqui definimos que as primeiras 15 linhas aparecerão (lembrando que começa do 0)
 
 
 #%% Checando as informações do DataFrame
@@ -92,3 +92,10 @@ for column in ['song_duration_ms',  'danceability', 'energy',
     df[column].fillna(df[column].mean(), inplace=True)
     
 df.dropna(inplace=True)
+
+df.columns
+
+#%%
+df.to_csv('dados_limpos.csv', index=False)
+
+
